@@ -35,3 +35,24 @@ function operate(firstNum, operator, secondNum) {
         return "Invalid operator"
     }
 }
+
+let displayValue = '';
+
+let displayNumber = document.querySelector('.display-number');
+let numberButtons = document.querySelectorAll('.number');
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.textContent === "." && displayValue.includes('.')) {
+            return;
+        }
+        displayValue += button.textContent;
+        displayNumber.textContent = displayValue;            
+    });
+});
+
+let clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', () => {
+    displayValue = '';
+    displayNumber.textContent = displayValue;
+});
