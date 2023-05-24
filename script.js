@@ -44,11 +44,19 @@ let displayValue = '';
 let displayNumber = document.querySelector('.display-number');
 let numberButtons = document.querySelectorAll('.number');
 
+let isNewNumber = true;
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (button.textContent === "." && displayValue.includes('.')) {
             return;
         }
+
+        if (isNewNumber) {
+            displayValue = '';
+            isNewNumber = false;
+        }
+
         displayValue += button.textContent;
         displayNumber.textContent = displayValue;            
     });
@@ -68,17 +76,17 @@ operatorButtons.forEach(button => {
             secondNum = parseFloat(displayValue);
             let result = operate(parseFloat(firstNum), operator, secondNum);
 
+            result = parseFloat(result.toFixed(2));
             displayValue = '' + result;
             displayNumber.textContent = displayValue;
 
             firstNum = result;
             operator ='';
-            return;
+        } else {
+            firstNum = displayValue;
+            operator = button.textContent;  
+            isNewNumber = true;     
         }
-
-        firstNum = displayValue;
-        operator = button.textContent;
-        displayValue = '';
     });
 });
 
@@ -89,10 +97,12 @@ equalsButton.addEventListener('click', () => {
         secondNum = parseFloat(displayValue);
         let result = operate(parseFloat(firstNum), operator, secondNum);
 
+        result = parseFloat(result.toFixed(2));
         displayValue = '' + result;
         displayNumber.textContent = displayValue;
 
         firstNum = result;
         operator = '';
     }
+    isNewNumber = true;
 });
