@@ -25,10 +25,13 @@ function operate(firstNum, operator, secondNum) {
     else if (operator === '-') {
         return subtract(firstNum, secondNum)
     }
-    else if (operator === '*') {
+    else if (operator === 'x') {
         return multiply(firstNum, secondNum)
     }
-    else if (operator === '/') {
+    else if (operator === '÷') {
+        if (secondNum == 0) {
+            return 'Cannot divide by zero';
+        }
         return divide(firstNum, secondNum)
     }
     else {
@@ -55,4 +58,41 @@ let clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', () => {
     displayValue = '';
     displayNumber.textContent = displayValue;
+});
+
+let operatorButtons = document.querySelectorAll('.operator');
+
+operatorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (firstNum && operator) {
+            secondNum = parseFloat(displayValue);
+            let result = operate(parseFloat(firstNum), operator, secondNum);
+
+            displayValue = '' + result;
+            displayNumber.textContent = displayValue;
+
+            firstNum = result;
+            operator ='';
+            return;
+        }
+
+        firstNum = displayValue;
+        operator = button.textContent;
+        displayValue = '';
+    });
+});
+
+let equalsButton = document.querySelector('.equals');
+
+equalsButton.addEventListener('click', () => {
+    if (firstNum && operator) {
+        secondNum = parseFloat(displayValue);
+        let result = operate(parseFloat(firstNum), operator, secondNum);
+
+        displayValue = '' + result;
+        displayNumber.textContent = displayValue;
+
+        firstNum = result;
+        operator = '';
+    }
 });
