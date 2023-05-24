@@ -48,3 +48,15 @@ body {
   .buttons button.equals {
     background-color: red;
   }
+
+  .clear-container {
+    margin-bottom: 10px;
+  }
+
+  .clear {
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: red;
+    font-size: 33px;
+    color: white;
+  }
