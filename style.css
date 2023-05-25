@@ -16,7 +16,7 @@ body {
   
   .display-box {
     height: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding: 10px;
     border: 3px solid #ccc;
     border-radius: 15px;
@@ -53,14 +53,11 @@ body {
     background-color: red;
   }
 
-  .clear-container {
-    margin-bottom: 10px;
-  }
-
   .clear {
     height: 60px;
     margin-bottom: 10px;
+    font-size: 25px;
+    width: 88px;
     background-color: red;
-    font-size: 33px;
     color: white;
   }
