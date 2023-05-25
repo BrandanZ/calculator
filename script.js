@@ -34,7 +34,7 @@ function operate(firstNum, operator, secondNum) {
 let calculation = {
   firstNum: null,
   operator: null,
-  secondNum: null
+  secondNum: null,
 };
 
 let displayValue = '';
