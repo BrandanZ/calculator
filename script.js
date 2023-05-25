@@ -18,16 +18,17 @@ function divide(a, b) {
 }
 
 function operate(firstNum, operator, secondNum) {
-    if (operator === '+') {
-        return add(firstNum, secondNum)
-    } else if (operator === '-') {
-        return subtract(firstNum, secondNum)
-    } else if (operator === 'x') {
-        return multiply(firstNum, secondNum)
-    } else if (operator === '÷') {
-        return divide(firstNum, secondNum)
-    } else {
-        return "Invalid operator"
+    switch(operator) {
+        case '+':
+            return add(firstNum, secondNum);
+        case '-':
+            return subtract(firstNum, secondNum);
+        case 'x':
+            return multiply(firstNum, secondNum);
+        case '÷':
+            return divide(firstNum, secondNum);
+        default:
+            return "Invalid operator";
     }
 }
 
