@@ -22,7 +22,7 @@ body {
     border-radius: 15px;
     background-color: lightgray;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
   }
 
